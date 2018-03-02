@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "navanth.com.wheatherapp"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.appCompatVersion"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersion"
+    implementation "com.android.support:design:$rootProject.ext.supportDesignLibraryVersion"
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+
+
+    compile 'com.google.dagger:dagger:2.12'
+    kapt 'com.google.dagger:dagger-compiler:2.12'
+    compile 'com.google.dagger:dagger-android:2.12'
+    kapt 'com.google.dagger:dagger-android-processor:2.12'
+    compile 'com.google.dagger:dagger-android-support:2.12'
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttpVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpVersion"
+
+    // RxJava & RxAndroid
+    compile 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    compile "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroidVersion"
+    compile "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.rxJavaRetrofitAdapterVersion"
+
+    compile "com.jakewharton.rxbinding:rxbinding:$rootProject.ext.rxJavaBindingVersion"
+    compile "com.jakewharton.rxbinding:rxbinding-design:$rootProject.ext.rxJavaBindingVersion"
+    compile "com.google.android.gms:play-services-location:$rootProject.ext.playServicesVersion"
+}

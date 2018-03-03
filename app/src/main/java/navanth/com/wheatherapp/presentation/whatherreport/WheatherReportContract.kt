@@ -17,6 +17,11 @@ interface WheatherReportContract {
 
         fun getWheatherReport(wheatherResponse: WheatherResponse)
         fun onErrorInGettingWheatherReport(errorMessage: String)
+        fun onValidCityEntered(city :String?)
+        fun showErrorForCityEntered( errorMessage: String)
+
+        fun toggleRecyclerView(visibility:Int)
+        fun toggleNoDataTextView(visibility :Int)
 
     }
 }

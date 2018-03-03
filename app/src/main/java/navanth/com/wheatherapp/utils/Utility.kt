@@ -3,6 +3,8 @@ package navanth.com.wheatherapp.utils
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.SharedPreferences
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -30,6 +32,11 @@ class Utility {
             calendar.timeInMillis = timestamp * 1000L
             return SimpleDateFormat("dd-MMM-yyyy ").format(calendar.time)
 
+        }
+
+        fun hideKeyBoard(context: Context, view: View) {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
     }

@@ -4,7 +4,7 @@ import io.reactivex.Observable
 import navanth.com.wheatherapp.data.entity.WheatherResponse
 import navanth.com.wheatherapp.data.repository.DataRepository
 import navanth.com.wheatherapp.data.source.DataSource
-import navanth.com.wheatherapp.domain.dashboard.WheatherReportUseCase
+import navanth.com.wheatherapp.domain.wheatherreport.WheatherReportUseCase
 import javax.inject.Inject
 
 

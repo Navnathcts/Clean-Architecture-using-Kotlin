@@ -1,36 +1,26 @@
 package navanth.com.wheatherapp.presentation.base
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import navanth.com.wheatherapp.utils.Utility
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
 
+    lateinit var mProgressDialog: ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-//        setUpToolBar();
+        mProgressDialog = Utility.getProgressDialogInstance(this)
     }
 
-    fun setUpToolBar() {
-        setSupportActionBar(toolbar)
+    fun showProgressDialog() {
+        mProgressDialog!!.show()
     }
 
-    /**
-     * This will show title of activity
-     */
-    fun showTitle(title: String?) {
-        toolbar!!.setTitle(title)
-    }
-
-    /**
-     * This will show back button if needed.
-     */
-    fun showBackButton(showBackButton: Boolean) {
-        supportActionBar!!.setDisplayHomeAsUpEnabled(showBackButton)
-        supportActionBar!!.setDisplayShowHomeEnabled(showBackButton)
-        toolbar
-        toolbar!!.setNavigationOnClickListener({ view -> onBackPressed() })
+    fun hideProgressDialog() {
+        mProgressDialog!!.dismiss()
     }
 
     abstract fun getLayoutId(): Int

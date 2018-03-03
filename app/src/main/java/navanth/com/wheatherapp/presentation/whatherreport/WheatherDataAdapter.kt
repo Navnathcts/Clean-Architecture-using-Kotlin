@@ -25,8 +25,8 @@ class WheatherDataAdapter @Inject constructor() : BaseAdapter<WheatherResponse>,
 
     override fun getItemCount(): Int = itemList?.size ?: 0
 
-    override fun setData(response: WheatherResponse) {
-        itemList = response.list!!
+    override fun setData(response: WheatherResponse?) {
+        itemList = response!!.list!!
         notifyDataSetChanged()
     }
 }

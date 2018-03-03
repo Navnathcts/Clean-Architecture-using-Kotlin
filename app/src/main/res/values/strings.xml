@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">WheatherApp</string>
+    <string name="title">Wheather App</string>
+    <string name="city">City :</string>
+    <string name="country">Country :</string>
 
 </resources>

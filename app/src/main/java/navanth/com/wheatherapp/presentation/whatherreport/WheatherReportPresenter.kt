@@ -1,9 +1,9 @@
 package navanth.com.wheatherapp.presentation.whatherreport
 
-import android.util.Log
+import android.text.TextUtils
 import android.view.View
 import io.reactivex.disposables.CompositeDisposable
-import navanth.com.wheatherapp.domain.dashboard.WheatherReportUseCase
+import navanth.com.wheatherapp.domain.wheatherreport.WheatherReportUseCase
 import javax.inject.Inject
 
 
@@ -28,11 +28,24 @@ class WheatherReportPresenter @Inject constructor() : WheatherReportContract.Pre
         compositeDisposable!!.add(wheatherRepostUseCase!!.
                 executeUseCase(WheatherReportUseCase.Request(cityName)).subscribe(
                 { response ->
+                    view!!.toggleRecyclerView(View.VISIBLE)
+                    view!!.toggleNoDataTextView(View.GONE)
                     view!!.getWheatherReport(response.wheatherResponse!!)
                 },
                 { throwable ->
+                    view!!.toggleRecyclerView(View.GONE)
+                    view!!.toggleNoDataTextView(View.VISIBLE)
                     view!!.onErrorInGettingWheatherReport(" Oops !! Unable to fetch wheather details... ");
                 }))
+    }
+
+    fun validateCityEntered(city: String?) {
+        if (TextUtils.isEmpty(city)) {
+            view!!.showErrorForCityEntered("Please enter city name ");
+        } else {
+            view!!.onValidCityEntered(city!!)
+        }
+
     }
 
 

@@ -1,4 +1,4 @@
-package navanth.com.wheatherapp.domain.dashboard
+package navanth.com.wheatherapp.domain.wheatherreport
 
 import io.reactivex.Observable
 import navanth.com.wheatherapp.data.entity.WheatherResponse

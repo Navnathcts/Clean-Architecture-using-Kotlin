@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
+import navanth.com.wheatherapp.data.source.services.WheatherReportApiService
 import navanth.com.wheatherapp.utils.Utility
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -40,4 +41,5 @@ class RetrofitModule {
             .addConverterFactory(gsonConverterFactory)
             .addCallAdapterFactory(rxJava2CallAdapterFactory)
             .build()
+
 }

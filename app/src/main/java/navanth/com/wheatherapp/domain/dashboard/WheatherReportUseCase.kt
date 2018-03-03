@@ -1,22 +1,24 @@
 package navanth.com.wheatherapp.domain.dashboard
 
 import io.reactivex.Observable
-import io.reactivex.disposables.CompositeDisposable
+import navanth.com.wheatherapp.data.entity.WheatherResponse
+import navanth.com.wheatherapp.data.repository.DataRepository
 import navanth.com.wheatherapp.domain.UseCase
 import javax.inject.Inject
 
 
 class WheatherReportUseCase @Inject constructor() : UseCase<WheatherReportUseCase.Request, WheatherReportUseCase.Response>() {
 
+    @Inject
+    lateinit var dataRepository: DataRepository
 
-    override fun createObservable(request: UseCase.Request): Observable<Response> = null!!
+    override fun createObservable(request: WheatherReportUseCase.Request): Observable<WheatherReportUseCase.Response> =
+            dataRepository!!.getWheatherDetailsOfCity(request)
 
 
-    class Request : UseCase.Request() {
+    class Request constructor(val cityName: String) : UseCase.Request
 
-    }
-
-    class Response : UseCase.Response() {
-
+    class Response(wheatherResponse: WheatherResponse) : UseCase.Response {
+        var wheatherResponse: WheatherResponse? = wheatherResponse
     }
 }

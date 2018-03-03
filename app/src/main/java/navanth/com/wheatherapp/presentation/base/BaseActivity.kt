@@ -12,26 +12,26 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
 //        setUpToolBar();
     }
 
-//    fun setUpToolBar() {
-//        setSupportActionBar(toolbar)
-//    }
-//
-//    /**
-//     * This will show title of activity
-//     */
-//    fun showTitle(title: String?) {
-//        toolbar!!.setTitle(title)
-//    }
-//
-//    /**
-//     * This will show back button if needed.
-//     */
-//    fun showBackButton(showBackButton: Boolean) {
-//        supportActionBar!!.setDisplayHomeAsUpEnabled(showBackButton)
-//        supportActionBar!!.setDisplayShowHomeEnabled(showBackButton)
-//        toolbar
-//        toolbar!!.setNavigationOnClickListener({ view -> onBackPressed() })
-//    }
+    fun setUpToolBar() {
+        setSupportActionBar(toolbar)
+    }
+
+    /**
+     * This will show title of activity
+     */
+    fun showTitle(title: String?) {
+        toolbar!!.setTitle(title)
+    }
+
+    /**
+     * This will show back button if needed.
+     */
+    fun showBackButton(showBackButton: Boolean) {
+        supportActionBar!!.setDisplayHomeAsUpEnabled(showBackButton)
+        supportActionBar!!.setDisplayShowHomeEnabled(showBackButton)
+        toolbar
+        toolbar!!.setNavigationOnClickListener({ view -> onBackPressed() })
+    }
 
     abstract fun getLayoutId(): Int
 

@@ -10,7 +10,6 @@ import navanth.com.wheatherapp.WheatherApplication
 import navanth.com.wheatherapp.di.module.ActivityBindingModule
 import navanth.com.wheatherapp.di.module.AppModule
 import navanth.com.wheatherapp.di.module.RetrofitModule
-import navanth.com.wheatherapp.di.module.RxModule
 import navanth.com.wheatherapp.di.scope.ApplicationScope
 import javax.inject.Singleton
 
@@ -19,7 +18,6 @@ import javax.inject.Singleton
 @ApplicationScope
 @Component(modules = arrayOf(
         AppModule::class,
-        RxModule::class,
         AndroidSupportInjectionModule::class,
         ActivityBindingModule::class,
         RetrofitModule::class))

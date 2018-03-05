@@ -82,4 +82,9 @@ class WheatherReportActivity : BaseActivity(), WheatherReportContract.View, Base
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        hideProgressDialog()
+    }
+
 }

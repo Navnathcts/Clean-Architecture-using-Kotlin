@@ -185,4 +185,9 @@ abstract class BaseActivity : DaggerAppCompatActivity(), GoogleApiClient.Connect
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        hideProgressDialog()
+    }
+
 }

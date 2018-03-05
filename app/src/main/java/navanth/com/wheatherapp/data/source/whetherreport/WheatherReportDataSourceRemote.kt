@@ -16,8 +16,15 @@ class WheatherReportDataSourceRemote @Inject constructor() : DataSource {
     @Inject
     lateinit var retrofitObject: Retrofit
 
-    override fun getWheatherDetailsOfCity(request: WheatherReportUseCase.Request): Observable<WheatherResponse> =
-            retrofitObject!!.create(WheatherReportApiService::class.java).
-                    getWheatherReport(request!!.cityName, Utility.NO_OF_DAYS_FOR_REPORT, Utility.WHEATHER_API_KEY)
+    override fun getWheatherDetailsOfCity(request: WheatherReportUseCase.Request): Observable<WheatherResponse> {
 
+        if (request.model!!.city == null) {
+            return retrofitObject!!.create(WheatherReportApiService::class.java).
+                    getWheatherReportBasedOnLatLong(request!!.model!!.lat.toString(), request.model!!.lon.toString(),
+                            Utility.NO_OF_DAYS_FOR_REPORT, Utility.WHEATHER_API_KEY)
+        } else {
+            return retrofitObject!!.create(WheatherReportApiService::class.java).
+                    getWheatherReportBasedOnCityName(request!!.model!!.city!!, Utility.NO_OF_DAYS_FOR_REPORT, Utility.WHEATHER_API_KEY)
+        }
+    }
 }

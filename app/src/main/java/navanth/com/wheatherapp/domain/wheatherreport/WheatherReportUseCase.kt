@@ -4,6 +4,7 @@ import io.reactivex.Observable
 import navanth.com.wheatherapp.data.entity.WheatherResponse
 import navanth.com.wheatherapp.data.repository.DataRepository
 import navanth.com.wheatherapp.domain.UseCase
+import navanth.com.wheatherapp.presentation.whatherreport.model.LocationModel
 import javax.inject.Inject
 
 
@@ -16,7 +17,7 @@ class WheatherReportUseCase @Inject constructor() : UseCase<WheatherReportUseCas
             dataRepository!!.getWheatherDetailsOfCity(request)
 
 
-    class Request constructor(val cityName: String) : UseCase.Request
+    class Request constructor(var model: LocationModel?) : UseCase.Request
 
     class Response(wheatherResponse: WheatherResponse) : UseCase.Response {
         var wheatherResponse: WheatherResponse? = wheatherResponse

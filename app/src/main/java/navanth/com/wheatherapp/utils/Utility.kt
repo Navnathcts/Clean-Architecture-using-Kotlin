@@ -9,6 +9,7 @@ import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class Utility {
@@ -18,6 +19,8 @@ class Utility {
         var NO_OF_DAYS_FOR_REPORT = "14"
         var BASE_URL = "http://api.openweathermap.org/data/2.5/"
         var mProgressDialog: ProgressDialog? = null
+        var LOCATION_INTERVAL = TimeUnit.MINUTES.toMillis(30)
+        var LOCATION_DISTANCE = 10f
 
         fun getProgressDialogInstance(context: Context): ProgressDialog {
             mProgressDialog = ProgressDialog(context)

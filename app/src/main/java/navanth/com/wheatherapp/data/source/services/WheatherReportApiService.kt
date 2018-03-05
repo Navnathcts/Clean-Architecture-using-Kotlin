@@ -10,8 +10,15 @@ import retrofit2.http.Query
 interface WheatherReportApiService {
 
     @GET("forecast/daily")
-    fun getWheatherReport(
+    fun getWheatherReportBasedOnCityName(
             @Query("q") cityName: String,
+            @Query("cnt") days: String,
+            @Query("appid") apiKey: String): Observable<WheatherResponse>
+
+    @GET("forecast/daily")
+    fun getWheatherReportBasedOnLatLong(
+            @Query("lat") lat: String,
+            @Query("lon") long: String,
             @Query("cnt") days: String,
             @Query("appid") apiKey: String): Observable<WheatherResponse>
 }

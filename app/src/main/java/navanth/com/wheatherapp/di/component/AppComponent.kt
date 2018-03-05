@@ -9,6 +9,7 @@ import dagger.android.support.AndroidSupportInjectionModule
 import navanth.com.wheatherapp.WheatherApplication
 import navanth.com.wheatherapp.di.module.ActivityBindingModule
 import navanth.com.wheatherapp.di.module.AppModule
+import navanth.com.wheatherapp.di.module.GoogleLocationServiceModule
 import navanth.com.wheatherapp.di.module.RetrofitModule
 import navanth.com.wheatherapp.di.scope.ApplicationScope
 import javax.inject.Singleton
@@ -20,6 +21,7 @@ import javax.inject.Singleton
         AppModule::class,
         AndroidSupportInjectionModule::class,
         ActivityBindingModule::class,
+        GoogleLocationServiceModule::class,
         RetrofitModule::class))
 interface AppComponent : AndroidInjector<DaggerApplication> {
 

@@ -9,3 +9,5 @@ Retrofit 2.3.0 -> This is used for network calls
 Rx Java & Rx Android -> These are used to do aysnchronous operations
 
 Architecture Used -> Clean MVP is used to develop application .
+
+On Launch of app, it will directly provide wheather details of current location.
